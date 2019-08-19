@@ -1,10 +1,11 @@
 *{
     box-sizing: border-box;
-    margin: 0;
+    margin: 6px;
     padding: 0;
 }
 .main {
-    height: 100vh;
+    display: inline;
+   /* height: 100vh; */
     border: 1px solid rgb(0, 0, 0);
     background-color: rgb(199, 197, 197);
 }
@@ -15,10 +16,11 @@
 input[type=search]{
     border: 1px solid royalblue;
     border-radius: 6px;
-    width: 85%;
+    width: 30%;
     padding: 5px 20px;
     margin-top: 15px;
     margin-left: 9px;
+    float: right;
 }
 .game-body {
     display: flex;
@@ -75,13 +77,11 @@ input[type=search]{
 }
 .star {
     position: absolute;
-    top: 4px;
-    right: 10px;
+    top: 0px;
+    right: 0px;
 }
 table {
     border-collapse: collapse;
     border-style: hidden;
   }
-  /* table td {
-    border: 5px solid black;
- } */
+  

@@ -3,7 +3,7 @@
     margin: 6px;
     padding: 0;
 }
-.main {
+#main {
     display: inline;
    /* height: 100vh; */
     border: 1px solid rgb(0, 0, 0);

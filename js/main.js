@@ -11,7 +11,7 @@ window.onload = () => {
     for (let i =2; i<=totalPages; i++){
         $(".pagination").append("<li class='current-page' class='page-item'><a class='page-link' href='javascript:void(0)'>"+i+"</a></li>")
     }
-    $(".pagination").append("<li class='page-item'><a class='page-link' href='javascript:void(0)'>"+'Next'+"</a></li>");
+    $(".pagination").append("<li class='page-item'><a id='next-page' class='page-link' href='javascript:void(0)'>"+'Next'+"</a></li>");
     $(".pagination li.current-page").on("click", function(){
         if($(this).hasClass("active")){
             return false;
@@ -27,6 +27,21 @@ window.onload = () => {
         }
         
     });
+    $("#next-page").on("click", function(){
+        let currentPage = $(".pagination li.active").index();
+        if (currentPage==totalPages){
+            return false;
+        } else {
+            currentPage++;
+            $(".pagination li").removeClass("active");
+            $(".game-body .items").hide();
+            let grandTotal = limitPerPage*currentPage;
+            for (let i=grandTotal-limitPerPage; i<grandTotal; i++){
+                $(".game-body .items:eq("+i+")").show();
+            }
+            $(".pagination li.current-page:eq("+(currentPage-1)+")").addClass("active");
+        }
+    })
 }
 
 

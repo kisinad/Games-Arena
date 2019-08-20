@@ -5,15 +5,27 @@ window.onload = () => {
     $(".game-body .items:gt("+(limitPerPage-1)+")").hide();
     let totalPages = Math.round(numberOfVariables/limitPerPage);
     // alert(totalPages);
-    $(".pagination").append("<li class='page-item'><a class='page-link' href='javascript:void(0)'>"+1+"</a></li>");
+    $(".pagination").append("<li class='page-item current-page active'><a class='page-link' href='javascript:void(0)'>"+1+"</a></li>");
    
     
     for (let i =2; i<=totalPages; i++){
-        $(".pagination").append("<li id='current-page' class='page-item'><a class='page-link' href='javascript:void(0)'>"+i+"</a></li>")
+        $(".pagination").append("<li class='current-page' class='page-item'><a class='page-link' href='javascript:void(0)'>"+i+"</a></li>")
     }
     $(".pagination").append("<li class='page-item'><a class='page-link' href='javascript:void(0)'>"+'Next'+"</a></li>");
-    $(".pagination li#current-page").on("click", function(){
-        alert('user click on page number');
+    $(".pagination li.current-page").on("click", function(){
+        if($(this).hasClass("active")){
+            return false;
+        }else{
+            let currentPage = $(this).index();
+            $(".pagination li").removeClass("active");
+            $(this).addClass("active");
+            $(".game-body .items").hide();
+            let grandTotal = limitPerPage*currentPage;
+            for (let i=grandTotal-limitPerPage; i<grandTotal; i++){
+                $(".game-body .items:eq("+i+")").show();
+            }
+        }
+        
     });
 }
 

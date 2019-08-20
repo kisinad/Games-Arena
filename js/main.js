@@ -1,3 +1,25 @@
+window.onload = () => {
+    loadGameData(gameData);
+    let numberOfVariables = $(".game-body .items").length;
+    let limitPerPage = 10;
+    $(".game-body .items:gt("+(limitPerPage-1)+")").hide();
+    let totalPages = Math.round(numberOfVariables/limitPerPage);
+    // alert(totalPages);
+    $(".pagination").append("<li class='page-item'><a class='page-link' href='javascript:void(0)'>"+1+"</a></li>");
+   
+    
+    for (let i =2; i<=totalPages; i++){
+        $(".pagination").append("<li id='current-page' class='page-item'><a class='page-link' href='javascript:void(0)'>"+i+"</a></li>")
+    }
+    $(".pagination").append("<li class='page-item'><a class='page-link' href='javascript:void(0)'>"+'Next'+"</a></li>");
+    $(".pagination li#current-page").on("click", function(){
+        alert('user click on page number');
+    });
+}
+
+
+
+
 let gameData = [
     {title: 'Street Fighter', score: 9.0,genre:'Action', platform:'PC game', editors_choice:'', src:'./img' },
     {title: 'FIFA 18', score: 7.9,genre:'Role-playing', platform:'Microsoft-Xbox', editors_choice:'' },
@@ -13,15 +35,22 @@ let gameData = [
     {title: 'Resident Evil', score: 9.0,genre:'Action', platform:'playStation 2', editors_choice:'' },
     {title: 'Resident Evil', score: 9.0,genre:'Action', platform:'playStation 2', editors_choice:'' },
     {title: 'Resident Evil', score: 9.0,genre:'Action', platform:'playStation 2', editors_choice:'' },
-    {title: 'Resident Evil', score: 9.0,genre:'Action', platform:'playStation 2', editors_choice:'' }
+    {title: 'Resident Evil', score: 9.0,genre:'Action', platform:'playStation 2', editors_choice:'' },
+    {title: 'Street Fighter', score: 9.0,genre:'Action', platform:'PC game', editors_choice:'', src:'./img' },
+    {title: 'FIFA 18', score: 7.9,genre:'Role-playing', platform:'Microsoft-Xbox', editors_choice:'' },
+    {title: 'Super Mario Bros', score: 9.0,genre:'Action-adventure', platform:'Xbox-360', editors_choice:'' },
+    {title: 'League of Legends', score: 9.0,genre:'Role-playing', platform:'PlayStation 2', editors_choice:'' },
+    {title: 'Gigantic', score: 9.0,genre:'Action', platform:'Nitendo', editors_choice:'' },
+    {title: 'Street Fighter', score: 9.0,genre:'Action', platform:'PC game', editors_choice:'', src:'./img' },
+    {title: 'FIFA 18', score: 7.9,genre:'Role-playing', platform:'Microsoft-Xbox', editors_choice:'' },
+    {title: 'Super Mario Bros', score: 9.0,genre:'Action-adventure', platform:'Xbox-360', editors_choice:'' },
+    {title: 'League of Legends', score: 9.0,genre:'Role-playing', platform:'PlayStation 2', editors_choice:'' },
+    {title: 'Gigantic', score: 9.0,genre:'Action', platform:'Nitendo', editors_choice:'' }
     
 ];
-window.onload = () => {
-    loadGameData(gameData);
-}
 
 function loadGameData (gameData) {
-    for (var game of gameData){
+    for (let game of gameData){
     let newDiv = document.createElement('div');
     newDiv.className = "items";
     let newDivImg = document.createElement('div');
@@ -65,3 +94,9 @@ function loadGameData (gameData) {
     newSpanScore.append(game.score);
  }
 }
+
+// $(document).ready(function(){
+//     let numberOfVariables = $('.game-body .items').length;
+//     alert(numberOfVariables);
+    
+//     });

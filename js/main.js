@@ -1,10 +1,13 @@
-window.onload = () => {
-    loadGameData(gameData);
+window.onload = () => { //Waits for the whole document to load then runs the scripts inside
+    loadGameData(gameData); //Function to auto create and inject divs inside DOM
+
+    // ------------------------------------------------------
+    //JQuery code to generate pagination 
+    //-------------------------------------------------------
     let numberOfVariables = $(".game-body .items").length;
     let limitPerPage = 10;
     $(".game-body .items:gt("+(limitPerPage-1)+")").hide();
     let totalPages = Math.round(numberOfVariables/limitPerPage);
-    // alert(totalPages);
     $(".pagination").append("<li class='page-item current-page active'><a class='page-link' href='javascript:void(0)'>"+1+"</a></li>");
    
     
@@ -27,6 +30,7 @@ window.onload = () => {
         }
         
     });
+    //below code activates the next button
     $("#next-page").on("click", function(){
         let currentPage = $(".pagination li.active").index();
         if (currentPage===totalPages){
@@ -42,6 +46,7 @@ window.onload = () => {
             $(".pagination li.current-page:eq("+(currentPage-1)+")").addClass("active");
         }
     });
+    //below code activates the previous button
     $("#previous-page").on("click", function(){
         let currentPage = $(".pagination li.active").index();
         if (currentPage===1){
@@ -58,7 +63,9 @@ window.onload = () => {
         }
     });
 }
-
+//---------------------------------------------------------------------
+//End of the pagination JQuery Code
+//------------------------------------------------------------------------
 
 
 

@@ -1,6 +1,6 @@
 window.onload = () => { //Waits for the whole document to load then runs the scripts inside
     loadGameData(gameData); //Function to auto create and inject divs inside DOM
-
+    searchGameName();
     // ------------------------------------------------------
     //JQuery code to generate pagination 
     //-------------------------------------------------------
@@ -68,7 +68,7 @@ window.onload = () => { //Waits for the whole document to load then runs the scr
 //------------------------------------------------------------------------
 
 
-
+// Dummy sample data
 let gameData = [
     {title: 'Street Fighter', score: 9.0,genre:'Action', platform:'PC game', editors_choice:'', src:'./img' },
     {title: 'FIFA 18', score: 7.9,genre:'Role-playing', platform:'Microsoft-Xbox', editors_choice:'' },
@@ -97,7 +97,9 @@ let gameData = [
     {title: 'Gigantic', score: 9.0,genre:'Action', platform:'Nitendo', editors_choice:'' }
     
 ];
-
+//------------------------------------------------------------------------------
+//Function to create div cards
+//------------------------------------------------------------------------------
 function loadGameData (gameData) {
     for (let game of gameData){
     let newDiv = document.createElement('div');
@@ -144,8 +146,26 @@ function loadGameData (gameData) {
  }
 }
 
-// $(document).ready(function(){
-//     let numberOfVariables = $('.game-body .items').length;
-//     alert(numberOfVariables);
-    
-//     });
+//-------------------------------------------------------------------------------------------------
+//Searching Function
+//----------------------------------------------------------------------------------------------
+ function searchGameName(){
+     let input =document.getElementById("search");
+     let filter = input.value.toUpperCase();
+     let div1 = document.getElementsByClassName("game-body");
+     let div2 = document.getElementsByClassName("items");
+     console.log(div2.length);
+     let h3 = document.getElementsByClassName("title");
+     console.log(h3);
+     for(let i=0; i<div2.length; i++){
+        let h3 = div2[i].getElementsByClassName("title")[0];
+        if (h3.innerHTML.toUpperCase().indexOf(filter)>-1){
+            div2[i].style.display="";
+
+        }else{
+            div2[i].style.display="none";
+        }
+     }
+     
+     
+ }

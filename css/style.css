@@ -39,6 +39,9 @@ input[type=search]{
     padding: 10px;
     position: relative;
 }
+.items:hover{
+    background: rgb(152, 187, 179);
+}
 .items2 {
     width: 300px;
     height: 150px;

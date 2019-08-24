@@ -4,11 +4,13 @@ window.onload = () => { //Waits for the whole document to load then runs the scr
    // sortAscending(gameData);
     // sortDescending (gameData)
     pagination(); 
-
+    // Sorting Ascending function
     $('.sortAsced').on('click', function(){
         sortAscending(gameData);
     });
-    
+    $('.sortDescend').on('click', function(){
+        sortDescending(gameData);
+    })
 }
 // Dummy sample data
 let gameData = [
@@ -210,6 +212,29 @@ function sortAscending(gameData){
         "<span class='star'><img src='./img/star 25x25.png'></span>"+
         "<span class='genre'><span>Genre:</span>"+element.genre+"</span><span class='score'>"+element.score+"</span></div>"
     // console.log(resulta);
+});
+
+$('.game-body').html("");
+$('.game-body').html(sortResults);
+
+    
+ 
+    
+}
+
+function sortDescending(gameData){
+    
+    resultb = gameData.sort(function(a, b){
+        return b.score - a.score;
+    });
+    let sortResults="";
+    resultb.forEach(function(elementd){
+        sortResults +="<div class='items'>"+
+        "<div class='img-item'><img src='./img/image-placeholder1.png'></div>"+
+        "<h3 class='title'>"+elementd.title+"</h3><p class='platform'>"+elementd.platform+"</p>"+
+        "<span class='star'><img src='./img/star 25x25.png'></span>"+
+        "<span class='genre'><span>Genre:</span>"+elementd.genre+"</span><span class='score'>"+elementd.score+"</span></div>"
+    console.log(resultb);
 });
 
 $('.game-body').html("");

@@ -189,7 +189,7 @@ function searchGameNameTest(gameData){
         }
     });
  }
-
+// Creates Pagination of the pages
 function pagtest(){
     let numberOfVariables = $(".game-body .items").length;
     let limitPerPage = 10;
@@ -212,12 +212,13 @@ function sortAscending(gameData){
         "<span class='star'><img src='./img/star 25x25.png'></span>"+
         "<span class='genre'><span>Genre:</span>"+element.genre+"</span><span class='score'>"+element.score+"</span></div>"
     // console.log(resulta);
+    
 });
 
 $('.game-body').html("");
 $('.game-body').html(sortResults);
 
-    
+pagtest();
  
     
 }
@@ -234,14 +235,14 @@ function sortDescending(gameData){
         "<h3 class='title'>"+elementd.title+"</h3><p class='platform'>"+elementd.platform+"</p>"+
         "<span class='star'><img src='./img/star 25x25.png'></span>"+
         "<span class='genre'><span>Genre:</span>"+elementd.genre+"</span><span class='score'>"+elementd.score+"</span></div>"
-    console.log(resultb);
+    // console.log(resultb);
 });
 
 $('.game-body').html("");
 $('.game-body').html(sortResults);
 
     
- 
+pagtest();
     
 }
 

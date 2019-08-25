@@ -242,7 +242,7 @@ $('.game-body').html("");
 $('.game-body').html(sortResults);
 
     
-pagtest();
+pagtest();//
     
 }
 
